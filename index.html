@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>【教育用】ワンクリック詐欺体験サイト</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f0f0; text-align: center; padding-top: 50px; }
+        .warning-box { background: white; border: 5px solid red; display: inline-block; padding: 20px; max-width: 500px; box-shadow: 10px 10px 0px rgba(0,0,0,0.2); }
+        h1 { color: red; font-size: 24px; margin-bottom: 10px; }
+        .info-table { width: 100%; border-collapse: collapse; margin: 20px 0; text-align: left; }
+        .info-table th, .info-table td { border: 1px solid #ccc; padding: 8px; font-size: 14px; }
+        .info-table th { background: #eee; }
+        .price { font-size: 32px; color: red; font-weight: bold; }
+        .timer { font-size: 18px; color: blue; font-weight: bold; }
+        .footer-note { font-size: 12px; color: #666; margin-top: 20px; }
+        .edu-banner { background: yellow; padding: 10px; font-weight: bold; border-bottom: 2px solid #000; position: fixed; top: 0; left: 0; width: 100%; }
+    </style>
+</head>
+<body>
+
+<div class="edu-banner">これは教育用の「偽サイト」です。実際の請求ではありません。</div>
+
+<div class="warning-box">
+    <h1>ご入会ありがとうございます</h1>
+    <p>登録が完了しました。24時間以内に下記金額をお支払いください。</p>
+    
+    <div class="timer" id="timer">支払い期限まで残り：23:59:59</div>
+
+    <table class="info-table">
+        <tr><th>登録ID</th><td>A-999-XXXX</td></tr>
+        <tr><th>IPアドレス</th><td>192.168.x.x (あなたの通信情報)</td></tr>
+        <tr><th>使用機種</th><td>Windows / Mac / iPhone 等</td></tr>
+        <tr><th>所在地</th><td>東京都付近（プロバイダ情報から推定）</td></tr>
+    </table>
+
+    <p>お支払い合計金額</p>
+    <div class="price">￥98,000</div>
+
+    <p style="font-size: 14px; color: #555;">※期限内にお支払いが確認できない場合、法的措置に移行する可能性があります。</p>
+    
+    <button onclick="alert('これは訓練です。実際にはどこにも連絡してはいけません！')">退会・お問い合わせはこちら</button>
+
+    <div class="footer-note">
+        ※本画面は教育用です。実際の詐欺では、ブラウザを閉じても何度も表示される仕組み（ポップアップ等）が使われることがあります。
+    </div>
+</div>
+
+<script>
+    // 簡易カウントダウンタイマー
+    let h = 23, m = 59, s = 59;
+    setInterval(() => {
+        s--;
+        if(s < 0) { s = 59; m--; }
+        document.getElementById('timer').innerText = `支払い期限まで残り：${h}:${m}:${s}`;
+    }, 1000);
+</script>
+
+</body>
+</html>
